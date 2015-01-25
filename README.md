@@ -1,12 +1,12 @@
 # Maximal Borderless Factors
 
-# Compilation
+## Compilation
 
 ```
 $ make
 ```
 
-# Average Values
+## Average Values
 
 To find average length of maximal borderless factor for all words
 of length from 2 to 10 over the alphabet of size 5 use command
@@ -29,7 +29,7 @@ n = 9	answer = 8.6980838400
 n = 10	answer = 9.6976409600
 ```
 
-# Time Measuring
+## Time Measuring
 
 To measure time required by the algorithms use command
 
@@ -37,7 +37,7 @@ To measure time required by the algorithms use command
 $ ./bin/measure
 ```
 
-# More info
+## More info
 
 For usage type
 
