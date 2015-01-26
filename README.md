@@ -12,7 +12,7 @@ and its maximal borderless factor in graph format can be found
 and
 [here](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2.png).
 
-The average values of minimal period for different alphabet sizes and string lengths
+The average values of the minimal period for different alphabet sizes and string lengths
 can be found [here](https://github.com/avlonger/borderless/blob/master/results/average_min_border.txt).
 
 The average difference beetwen the length of the string and its minimal period in graph format
