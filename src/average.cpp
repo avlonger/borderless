@@ -1,3 +1,5 @@
+// average.cpp: Computation of the average length of the border or the maximal borderless factor
+
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
@@ -25,13 +27,13 @@ bool PRINT_TOTAL = false;
 
 void usage(const char * program_name) {
     printf("Usage: %s [options] ALGORITHM\n", program_name);
-    printf("Calculate some value\n");
+    printf("Calculate some average value for all words of given length\n");
     printf("Algorithms:\n");
-    printf("BORDERLESS                find sum of lengths of longest borderless\n");
-    printf("                          factors for all words of given length\n");
-    printf("BORDERLESS_NAIVE          naively find sum of lengths of longest borderless\n");
-    printf("                          factors for all words of given length\n");
-    printf("BORDER                    find sum of lengths of longest borders\n");
+    printf("BORDERLESS                find the average length of the longest\n");
+    printf("                          borderless factor for all words of given length\n");
+    printf("BORDERLESS_NAIVE          naively find the average length of the longest\n");
+    printf("                          borderless factor for all words of given length\n");
+    printf("BORDER                    find the average border length\n");
     printf("                          for all words of given length\n");
 
     printf("\n");
@@ -41,7 +43,7 @@ void usage(const char * program_name) {
     printf(" -s  Word length step    (default: 1)\n");
     printf(" -a  Alphabet size       (default: 2)\n");
     printf(" -t  Trace: print results for all generated words\n");
-    printf(" -n  Do not normalize result (do not divide result by total words count)\n");
+    printf(" -n  Do not normalize result (do not divide result by the total words count)\n");
     printf(" -c  Print count of processed words\n");
     printf(" -h  Print this help message\n");
 }

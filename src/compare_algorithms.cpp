@@ -1,3 +1,5 @@
+// compare_algorithms.cpp: Compare time required by the algorithms
+
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -7,14 +9,14 @@
 
 void usage(const char * program_name) {
     printf("Usage: %s [options]\n", program_name);
-    printf("Measure time required by proposed algorithms\n");
+    printf("Compare time required by proposed algorithms\n");
     printf("Options:\n");
     printf(" -b  Minimal word length            (default: 100)\n");
     printf(" -e  Maximal word length            (default: 1000)\n");
     printf(" -s  Word length step               (default: 1)\n");
     printf(" -a  Alphabet size                  (default: 2)\n");
     printf(" -r  Random words count for testing (default: 1000)\n");
-    printf(" -t  Trace: print results for generated words\n");
+    printf(" -t  Trace: print results for all generated words\n");
     printf(" -h  Print this help message\n");
 
 }
