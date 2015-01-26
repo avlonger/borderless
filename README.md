@@ -34,7 +34,15 @@ n = 10	answer = 9.6976409600
 To measure time required by the algorithms use command
 
 ```
-$ ./bin/measure
+$ ./bin/compare_algorithms
+```
+
+You will see
+
+```
+BASIC_ALGORITHM: n = 100 t = 0.00000355
+NAIVE_ALGORITHM: n = 100 t = 0.00005327
+...
 ```
 
 ## More info
@@ -43,5 +51,5 @@ For usage type
 
 ```
 $ ./bin/average -h
-$ ./bin/measure -h
+$ ./bin/compare_algorithms -h
 ```

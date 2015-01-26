@@ -4,6 +4,6 @@ project(borderless_factors)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x")
 
 set(EXPERIMENT src/average.cpp src/period.cpp src/border.cpp)
-set(MEASURE src/measure.cpp src/period.cpp src/border.cpp)
+set(COMPARE_ALGORITHMS src/compare_algorithms.cpp src/period.cpp src/border.cpp)
 add_executable(experiment ${EXPERIMENT})
-add_executable(measure ${MEASURE})
+add_executable(compare_algorithms ${COMPARE_ALGORITHMS})

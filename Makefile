@@ -5,7 +5,7 @@ BIN_PATH=bin
 SRC_PATH=src
 ALGORITHMS=src/border.cpp src/period.cpp
 
-all: dirs measure average
+all: dirs compare_algorithms average
 
 dirs:
 	mkdir -p $(BIN_PATH)
@@ -13,8 +13,8 @@ dirs:
 average:
 	$(CC) $(CFLAGS) $(ALGORITHMS) src/average.cpp $(LDFLAGS) -o $(BIN_PATH)/average
 
-measure:
-	$(CC) $(CFLAGS) $(ALGORITHMS) src/measure.cpp $(LDFLAGS) -o $(BIN_PATH)/measure
+compare_algorithms:
+	$(CC) $(CFLAGS) $(ALGORITHMS) src/compare_algorithms.cpp $(LDFLAGS) -o $(BIN_PATH)/compare_algorithms
 
 clean:
 	rm -rf $(BIN_PATH)
