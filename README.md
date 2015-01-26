@@ -1,14 +1,27 @@
 # Maximal Borderless Factors
 
+## Average Values
+
+You can find the average length of the maximal borderless factor for different
+alphabets and string lengths in text format
+[[here]](https://github.com/avlonger/borderless/blob/master/results/average_max_borderless.txt)
+
+You can find the difference between the length of the string
+and its maximal borderless factor in graph format
+[[here]](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2_3_4_5.png)
+and
+[[here]](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2.png)
+
+   
 ## Compilation
 
 ```
 $ make
 ```
+  
+## Usage
 
-## Average Values
-
-To find average length of maximal borderless factor for all words
+To find the average length of the maximal borderless factor for all words
 of length from 2 to 10 over the alphabet of size 5 use command
 
 ```
@@ -29,7 +42,7 @@ n = 9	answer = 8.6980838400
 n = 10	answer = 9.6976409600
 ```
 
-To find average length of maximal border for all words
+To find the average length of the maximal border for all words
 of length from 2 to 10 over the alphabet of size 5 use command
 
 ```
@@ -51,9 +64,9 @@ n = 10	answer = 0.3018327040
 ```
 
 
-## Time Measuring
+## Compare algorithms
 
-To measure time required by the algorithms use command
+To compare time required by the algorithms use command
 
 ```
 $ ./bin/compare_algorithms
@@ -69,7 +82,7 @@ NAIVE_ALGORITHM: n = 100 t = 0.00005327
 
 ## More info
 
-For usage type
+To see help message use commands
 
 ```
 $ ./bin/average -h
