@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <ctime>
 
-#include "period.h"
+#include "borderless.h"
 
 void usage(const char * program_name) {
     printf("Usage: %s [options]\n", program_name);

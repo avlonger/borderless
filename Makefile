@@ -3,7 +3,7 @@ CFLAGS=-Wall -O3 -std=c++0x
 LDFLAGS=
 BIN_PATH=bin
 SRC_PATH=src
-ALGORITHMS=src/border.cpp src/period.cpp
+ALGORITHMS=src/border.cpp src/borderless.cpp
 
 all: dirs compare_algorithms average
 
