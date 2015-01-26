@@ -4,13 +4,13 @@
 
 You can find the average length of the maximal borderless factor for different
 alphabets and string lengths in text format
-[[here]](https://github.com/avlonger/borderless/blob/master/results/average_max_borderless.txt)
+[here](https://github.com/avlonger/borderless/blob/master/results/average_max_borderless.txt)
 
 You can find the difference between the length of the string
 and its maximal borderless factor in graph format
-[[here]](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2_3_4_5.png)
+[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2_3_4_5.png)
 and
-[[here]](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2.png)
+[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2.png)
 
    
 ## Compilation
