@@ -29,6 +29,28 @@ n = 9	answer = 8.6980838400
 n = 10	answer = 9.6976409600
 ```
 
+To find average length of maximal border for all words
+of length from 2 to 10 over the alphabet of size 5 use command
+
+```
+$ ./bin/average -b 2 -e 10 -a 5 BORDER
+```
+
+You will see something like
+
+```
+n = 2	answer = 0.2000000000
+n = 3	answer = 0.2400000000
+n = 4	answer = 0.2800000000
+n = 5	answer = 0.2880000000
+n = 6	answer = 0.2972800000
+n = 7	answer = 0.2993920000
+n = 8	answer = 0.3010944000
+n = 9	answer = 0.3014860800
+n = 10	answer = 0.3018327040
+```
+
+
 ## Time Measuring
 
 To measure time required by the algorithms use command
