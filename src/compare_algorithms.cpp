@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <ctime>
 
-#include "borderless.h"
+#include "unbordered.h"
 
 void usage(const char * program_name) {
     printf("Usage: %s [options]\n", program_name);
@@ -38,7 +38,7 @@ void measure(char alphabet, char minimal_char, int length, int words_count, bool
     clock_t begin = clock();
 
     for (int i = 0; i < words_count; ++i) {
-        int result = max_borderless_length(strings + i * length, length);
+        int result = max_unbordered_length(strings + i * length, length);
         if (trace)
             printf("%.*s %d\n", length, strings + i * length, result);
     }
@@ -48,7 +48,7 @@ void measure(char alphabet, char minimal_char, int length, int words_count, bool
     begin = clock();
 
     for (int i = 0; i < words_count; ++i) {
-        int result = max_borderless_length_naive(strings + i * length, length);
+        int result = max_unbordered_length_naive(strings + i * length, length);
         if (trace)
             printf("%.*s %d\n", length, strings + i * length, result);
     }

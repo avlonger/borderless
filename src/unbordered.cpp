@@ -1,11 +1,11 @@
-#include "borderless.h"
+#include "unbordered.h"
 
 #include <stdlib.h>
 
 #include "border.h"
 
 
-int max_borderless_length_naive(const char * text, int n) {
+int max_unbordered_length_naive(const char * text, int n) {
     if (n < 0) {
         n = (int) strlen(text);
     }
@@ -25,7 +25,7 @@ int max_borderless_length_naive(const char * text, int n) {
 }
 
 
-int max_borderless_length(const char * text, int n) {
+int max_unbordered_length(const char * text, int n) {
 
     if (n < 0) {
         n = (int) strlen(text);

@@ -1,4 +1,4 @@
-// average.cpp: Computation of the average length of the border or the maximal borderless factor
+// average.cpp: Computation of the average length of the border or the maximal unbordered factor
 
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-#include "borderless.h"
+#include "unbordered.h"
 #include "border.h"
 
 
@@ -29,10 +29,10 @@ void usage(const char * program_name) {
     printf("Usage: %s [options] ALGORITHM\n", program_name);
     printf("Calculate some average value for all words of given length\n");
     printf("Algorithms:\n");
-    printf("BORDERLESS                find the average length of the longest\n");
-    printf("                          borderless factor for all words of given length\n");
-    printf("BORDERLESS_NAIVE          naively find the average length of the longest\n");
-    printf("                          borderless factor for all words of given length\n");
+    printf("UNBORDERED                find the average length of the longest\n");
+    printf("                          unbordered factor for all words of given length\n");
+    printf("UNBORDERED_NAIVE          naively find the average length of the longest\n");
+    printf("                          unbordered factor for all words of given length\n");
     printf("BORDER                    find the average border length\n");
     printf("                          for all words of given length\n");
 
@@ -71,12 +71,12 @@ uint64_t do_for_all_words(int position) {
     return total;
 }
 
-int longest_borderless_naive() {
-    return max_borderless_length_naive(CHAR_BUFFER, LENGTH);
+int longest_unbordered_naive() {
+    return max_unbordered_length_naive(CHAR_BUFFER, LENGTH);
 }
 
-int longest_borderless() {
-    return max_borderless_length(CHAR_BUFFER, LENGTH);
+int longest_unbordered() {
+    return max_unbordered_length(CHAR_BUFFER, LENGTH);
 }
 
 int longest_border() {
@@ -131,10 +131,10 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    if (strcmp(argv[optind], "BORDERLESS") == 0) {
-        FUNCTION = longest_borderless;
-    } else if (strcmp(argv[optind], "BORDERLESS_NAIVE") == 0) {
-        FUNCTION = longest_borderless_naive;
+    if (strcmp(argv[optind], "UNBORDERED") == 0) {
+        FUNCTION = longest_unbordered;
+    } else if (strcmp(argv[optind], "UNBORDERED_NAIVE") == 0) {
+        FUNCTION = longest_unbordered_naive;
     } else if (strcmp(argv[optind], "BORDER") == 0) {
         FUNCTION = longest_border;
     } else {

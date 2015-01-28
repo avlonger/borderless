@@ -1,25 +1,25 @@
-# Maximal Borderless Factors
+# Maximal Unbordered Factors
 
 ## Average Values
 
-You can find the average length of the maximal borderless factor for different
+You can find the average length of the maximal unbordered factor for different
 alphabets and string lengths in text format
-[here](https://github.com/avlonger/borderless/blob/master/results/average_max_borderless.txt).
+[here](https://github.com/avlonger/unbordered/blob/master/results/average_max_unbordered.txt).
 
 The difference between the length of the string
-and its maximal borderless factor in graph format can be found
-[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2_3_4_5.png)
+and its maximal unbordered factor in graph format can be found
+[here](https://github.com/avlonger/unbordered/blob/master/results/n_minus_max_unbordered_2_3_4_5.png)
 and
-[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_max_borderless_2.png).
+[here](https://github.com/avlonger/unbordered/blob/master/results/n_minus_max_unbordered_2.png).
 
 The average values of the minimal period for different alphabet sizes and string lengths
-can be found [here](https://github.com/avlonger/borderless/blob/master/results/average_min_border.txt).
+can be found [here](https://github.com/avlonger/unbordered/blob/master/results/average_min_border.txt).
 
 The average difference beetwen the length of the string and its minimal period in graph format
 can be found
-[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_min_period_2_3_4_5.png)
+[here](https://github.com/avlonger/unbordered/blob/master/results/n_minus_min_period_2_3_4_5.png)
 and
-[here](https://github.com/avlonger/borderless/blob/master/results/n_minus_min_period_2.png).
+[here](https://github.com/avlonger/unbordered/blob/master/results/n_minus_min_period_2.png).
  
    
 ## Compilation
@@ -30,11 +30,11 @@ $ make
   
 ## Usage
 
-To find the average length of the maximal borderless factor for all words
+To find the average length of the maximal unbordered factor for all words
 of length from 2 to 10 over the alphabet of size 5 use command
 
 ```
-$ ./bin/average -b 2 -e 10 -a 5 BORDERLESS
+$ ./bin/average -b 2 -e 10 -a 5 UNBORDERED
 ```
 
 You will see something like
