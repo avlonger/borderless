@@ -90,7 +90,32 @@ int max_unbordered_length_dbf(const char * text, int n) {
     }
     free(border_buffer);
     return 1;
+}
 
+int max_unbordered_length_dbf_hashtable(const char * text, int n) {
+    if (n < 0) {
+        n = (int) strlen(text);
+    }
+
+    // at first check if word itself is unbordered
+    int * border_buffer = (int *) calloc(n, sizeof(int));
+    border(text, border_buffer, n);
+    if (border_buffer[n - 1] == 0) {
+        return n;
+    }
+
+    DBFHashTable dbf(text, n);
+
+    for (int i = border_buffer[n - 1]; i < n - 1; ++i) {
+        for (int j = 0; j < i + 1; ++j) {
+            if (is_unbordered(text, dbf, j, j + n - i)) {
+                free(border_buffer);
+                return n - i;
+            }
+        }
+    }
+    free(border_buffer);
+    return 1;
 }
 
 
@@ -120,37 +145,37 @@ bool is_unbordered(const char * text, DBF & dbf, int start, int end) {
         int right_half_id = dbf.id(end - half, half);
 
         // first occurrence of right half in left factor
-        int first_in_left = dbf.succ(start, half, right_half_id);
+        int first_in_left = dbf.succ_short(start, half, right_half_id);
         if (first_in_left < 0 || first_in_left > start + half)
             // no occurrences
             continue;
 
         // first occurrence of left half in right factor
-        int first_in_right = dbf.succ(end - k, half, left_half_id);
+        int first_in_right = dbf.succ_short(end - k, half, left_half_id);
         if (first_in_right < 0 || first_in_right > end - half)
             // no occurrences
             continue;
 
         // second occurrence of right half in left factor
-        int second_in_left = dbf.succ(first_in_left + 1, half, right_half_id);
+        int second_in_left = dbf.succ_short(first_in_left + 1, half, right_half_id);
 
         // last occurrence of right half in left factor
         int last_in_left = first_in_left;
         if (second_in_left < 0 || second_in_left > start + half) {
             second_in_left = -1;
         } else {
-            last_in_left = dbf.pred(start + half, half, right_half_id);
+            last_in_left = dbf.pred_short(start + half, half, right_half_id);
         }
 
         // second occurrence of left half in right factor
-        int second_in_right = dbf.succ(first_in_right + 1, half, left_half_id);
+        int second_in_right = dbf.succ_short(first_in_right + 1, half, left_half_id);
 
         // last occurrence of left half in right factor
         int last_in_right = first_in_right;
         if (second_in_right < 0 || second_in_right > end - half) {
             second_in_right = -1;
         } else {
-            last_in_right = dbf.pred(end - half, half, left_half_id);
+            last_in_right = dbf.pred_short(end - half, half, left_half_id);
         }
 
         int first1 = half + first_in_left - start;

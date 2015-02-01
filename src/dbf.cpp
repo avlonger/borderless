@@ -1,26 +1,29 @@
 #include "dbf.h"
 
+#include <string.h>
+
 #include <set>
 #include <map>
 #include <vector>
 #include <numeric>
 
-using std::vector;
+#include "etc.h"
+
 using std::set;
 using std::map;
+using std::vector;
+using std::array;
 
 
-// return highest bit of given number
-int highest_bit(int n) {
-    int r = 0;
-    while (n >>= 1) {
-        ++r;
-    }
-    return r;
-}
+DBF::DBF(){}
 
 
 DBF::DBF(const char * text, int n) {
+    __build_dbf(text, n);
+}
+
+
+void DBF::__build_dbf(const char * text, int n) {
 
     if (n == -1) {
         n = (int) strlen(text);
@@ -41,8 +44,9 @@ DBF::DBF(const char * text, int n) {
     pos.push_back(vector< vector<int> >(chars.size()));
     for (int i = 0; i < n; ++i) {
         ids[0][i] = dict[text[i]];
-        pos[0][ids[0][i]].push_back(i);
     }
+
+    fill_positions(0, (int) chars.size());
 
     // sort-rename log n times
     int k, power, ids_count = (int)dict.size(), id, id2;
@@ -106,12 +110,19 @@ DBF::DBF(const char * text, int n) {
         }
         ids_count = current_id + 1;
 
-        // fill positions for factors of length 2 ^ (k + 1)
-        pos.push_back(vector< vector<int> >(ids_count));
-        int i = 0;
-        for (vector<int>::iterator it = ids[k + 1].begin(); it != ids[k + 1].end(); ++it, ++i) {
-            pos[k + 1][*it].push_back(i);
-        }
+        fill_positions(k + 1, ids_count);
+    }
+}
+
+void DBF::fill_positions(int k, int ids_count) {
+    if (pos.size() < k + 1) {
+        pos.push_back(vector< vector<int> >((unsigned long)ids_count));
+    } else {
+        pos[k].clear();
+    }
+    int i = 0;
+    for (vector<int>::iterator it = ids[k].begin(); it != ids[k].end(); ++it, ++i) {
+        pos[k][*it].push_back(i);
     }
 }
 
@@ -124,6 +135,18 @@ int DBF::succ(int i, int k, int id){
     if (result == pos[log2][id].end())
         return -1;
     return *result;
+}
+
+
+int DBF::succ_short(int i, int k, int id) {
+    int answer = succ(i, k, id);
+    return (answer > i + k) ? -1 : answer;
+}
+
+
+int DBF::pred_short(int i, int k, int id) {
+    int answer = pred(i, k, id);
+    return (answer < i - k) ? -1 : answer;
 }
 
 
@@ -144,3 +167,72 @@ int DBF::id(int i, int k) {
     return ids[highest_bit(k)][i];
 }
 
+
+DBFHashTable::DBFHashTable(){}
+
+DBFHashTable::DBFHashTable(const char * text, int n) {
+    __build_dbf(text, n);
+}
+
+
+void DBFHashTable::fill_positions(int k, int ids_count) {
+    int n = (int) ids[k].size();
+
+    // factor size
+    int size = 1 << k;
+
+    int slice_pos = 0;
+    for (int slice = 0; slice < n; slice += size, ++slice_pos) {
+        triplet key{{k, 0, slice_pos}};
+        for (int i = slice; i < slice + size && i < n; ++i) {
+            key[1] = ids[k][i];
+            table_type::iterator it = pos.find(key);
+            if (it == pos.end()) {
+                pos[key] = triplet{{i, i, 0}};
+            } else {
+                // save difference of the arithmetic progression
+                if (it->second[2] == 0) {
+                    it->second[2] = i - it->second[0];
+                }
+                // save last element of arithmetic progression
+                it->second[1] = i;
+            }
+        }
+    }
+}
+
+
+int DBFHashTable::succ_short(int i, int k, int id) {
+    int log2 = highest_bit(k);
+    triplet key{{log2, id, i / k}};
+    table_type::iterator occ = pos.find(key);
+    if (occ == pos.end() || occ->second[1] < i) {
+        key[2] = i / k + 1;
+        occ = pos.find(key);
+        if (occ == pos.end() || occ->second[0] > i + k) {
+            return -1;
+        }
+    }
+    if (occ->second[2] == 0) {
+        return occ->second[0];
+    }
+    return occ->second[1] - (occ->second[1] - i) / occ->second[2] * occ->second[2];
+}
+
+
+int DBFHashTable::pred_short(int i, int k, int id) {
+    int log2 = highest_bit(k);
+    triplet key{{log2, id, i / k}};
+    table_type::iterator occ = pos.find(key);
+    if (occ == pos.end() || occ->second[0] > i) {
+        key[2] = i / k - 1;
+        occ = pos.find(key);
+        if (occ == pos.end() || occ->second[1] < i - k) {
+            return -1;
+        }
+    }
+    if (occ->second[2] == 0) {
+        return occ->second[0];
+    }
+    return occ->second[0] + (i - occ->second[0]) / occ->second[2] * occ->second[2];
+}

@@ -36,6 +36,9 @@ void usage(const char * program_name) {
     printf("UNBORDERED_DBF            find the average length of the longest\n");
     printf("                          unbordered factor for all words of given length\n");
     printf("                          using Dictionary of Basic Factors\n");
+    printf("UNBORDERED_DBF_HASHTABLE  find the average length of the longest\n");
+    printf("                          unbordered factor for all words of given length\n");
+    printf("                          using Dictionary of Basic Factors and hashtable\n");
     printf("BORDER                    find the average border length\n");
     printf("                          for all words of given length\n");
 
@@ -84,6 +87,10 @@ int longest_unbordered() {
 
 int longest_unbordered_dbf() {
     return max_unbordered_length_dbf(CHAR_BUFFER, LENGTH);
+}
+
+int longest_unbordered_dbf_hashtable() {
+    return max_unbordered_length_dbf_hashtable(CHAR_BUFFER, LENGTH);
 }
 
 int longest_border() {
@@ -144,6 +151,8 @@ int main(int argc, char** argv) {
         FUNCTION = longest_unbordered_naive;
     } else if (strcmp(argv[optind], "UNBORDERED_DBF") == 0) {
         FUNCTION = longest_unbordered_dbf;
+    } else if (strcmp(argv[optind], "UNBORDERED_DBF_HASHTABLE") == 0) {
+        FUNCTION = longest_unbordered_dbf_hashtable;
     } else if (strcmp(argv[optind], "BORDER") == 0) {
         FUNCTION = longest_border;
     } else {

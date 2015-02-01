@@ -42,7 +42,7 @@ void measure(char alphabet, char minimal_char, int length, int words_count, bool
         if (trace)
             printf("%.*s %d\n", length, strings + i * length, result);
     }
-    printf("BASIC_ALGORITHM: n = %d t = %.8f\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
+    printf("PROPOSED_ALGORITHM: n = %d t = %.8f\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
     fflush(stdout);
 
     begin = clock();
@@ -53,7 +53,7 @@ void measure(char alphabet, char minimal_char, int length, int words_count, bool
             printf("%.*s %d\n", length, strings + i * length, result);
     }
 
-    printf("NAIVE_ALGORITHM: n = %d t = %.8lf\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
+    printf("BASIC_ALGORITHM   : n = %d t = %.8lf\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
     fflush(stdout);
 
 
@@ -65,7 +65,19 @@ void measure(char alphabet, char minimal_char, int length, int words_count, bool
             printf("%.*s %d\n", length, strings + i * length, result);
     }
 
-    printf("DBF_ALGORITHM  : n = %d t = %.8lf\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
+    printf("DBF_ALGORITHM     : n = %d t = %.8lf\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
+    fflush(stdout);
+
+
+    begin = clock();
+
+    for (int i = 0; i < words_count; ++i) {
+        int result = max_unbordered_length_dbf_hashtable(strings + i * length, length);
+        if (trace)
+            printf("%.*s %d\n", length, strings + i * length, result);
+    }
+
+    printf("DBF_HASHTABLE     : n = %d t = %.8lf\n", length, double(clock() - begin) / CLOCKS_PER_SEC / words_count);
     fflush(stdout);
 
     free(strings);
