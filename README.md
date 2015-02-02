@@ -26,7 +26,7 @@ and
 You can find comparison of the average running time of the algorithms in graph format 
 [here](https://github.com/avlonger/unbordered/blob/master/results/All%20algorithms/Images/Alphabet_size_2.png)
 and
-[here](https://github.com/avlonger/unbordered/blob/master/results/Basic%20and%20modified%20border%20array%20algortihms/Images/Alphabet_size_2.png).
+[here](https://github.com/avlonger/unbordered/blob/master/results/Basic%20and%20modified%20border%20array%20algorithms/Images/Alphabet_size_2.png).
 
 Running times of the algorithms in text format and more graphs can be found [here](https://github.com/avlonger/unbordered/tree/master/results/).
    
