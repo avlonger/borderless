@@ -21,6 +21,14 @@ can be found
 and
 [here](https://github.com/avlonger/unbordered/blob/master/results/n_minus_min_period_2.png).
  
+## Comparison of the Algorithms
+
+You can find comparison of the average running time of the algorithms in graph format 
+[here](https://github.com/avlonger/unbordered/blob/master/results/algorithms_comparison/proposed_vs_basic_2.png)
+and
+[here](https://github.com/avlonger/unbordered/blob/master/results/algorithms_comparison/comparison2.png).
+
+Running times of the algorithms and more graphs can be found [here](https://github.com/avlonger/unbordered/tree/master/results/algorithms_comparison).
    
 ## Compilation
 
