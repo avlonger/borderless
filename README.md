@@ -28,7 +28,7 @@ You can find comparison of the average running time of the algorithms in graph f
 and
 [here](https://github.com/avlonger/unbordered/blob/master/results/algorithms_comparison/comparison2.png).
 
-Running times of the algorithms and more graphs can be found [here](https://github.com/avlonger/unbordered/tree/master/results/algorithms_comparison).
+Running times of the algorithms in text format and more graphs can be found [here](https://github.com/avlonger/unbordered/tree/master/results/algorithms_comparison).
    
 ## Compilation
 
