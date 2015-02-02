@@ -5,12 +5,12 @@
 You can find the difference between the length of a string and the length of its maximal unbordered factor
 for different alphabets and string lengths in text format
 [here](https://github.com/avlonger/unbordered/blob/master/results/Average%20difference/Between%20n%20and%20maximal%20unbordered%20factor/Text/Alphabet_size_2_3_4_5.txt)
-and
+and in graph format
 [here](https://github.com/avlonger/unbordered/blob/master/results/Average%20difference/Between%20n%20and%20maximal%20unbordered%20factor/Images/Alphabet_size_2_3_4_5.png).
 
 You can find the difference between the length of a string and its minimal period
 [here](https://github.com/avlonger/unbordered/blob/master/results/Average%20difference/Between%20n%20and%20minimal%20period/Text/Alphabet_size_2_3_4_5.txt)
-and
+and in graph format
 [here](https://github.com/avlonger/unbordered/blob/master/results/Average%20difference/Between%20n%20and%20minimal%20period/Images/Alphabet_size_2_3_4_5.png).
  
 ## Comparison of the Algorithms
